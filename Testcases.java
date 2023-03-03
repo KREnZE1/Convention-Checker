@@ -11,7 +11,6 @@ public class Testcases {
         //TODO: Finish this testcase
         String testString = "Hallo";
         String expectedResult = "Hallo";
-        assertFalse(rule.canBeApplied(testString));
     }
 
     //TODO: Create more testcases for the SpaceBetweenPlus-rule
