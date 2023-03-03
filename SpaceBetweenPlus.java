@@ -3,7 +3,6 @@ public class SpaceBetweenPlus extends Rule {
 
     static final String description = "Before and after a '+' should always be spaces to make the code more legible";
 
-    //TODO: Add exception for ++ operator
 
     public SpaceBetweenPlus() {
         super(description, RuleStates.NONFUNCTIONAL);
@@ -23,12 +22,18 @@ public class SpaceBetweenPlus extends Rule {
     }
 
     public String applyRule(String s) {
-        for (int i=0; i<s.length(); i++) {
-            if (s.charAt(i) == '+') {
+        for (int i=0; i<s.length()-1; i++) {
+            if (s.charAt(i) == '+' && s.charAt(i+1) != '+') { //Ignores the ++ operator
                 s = insertMissingSpace(s, i+1);
                 s = insertMissingSpace(s, i-1);
             }
         }
+        if (s.charAt(s.length()-1) == '+') {
+            s = insertMissingSpace(s, s.length());
+            s = insertMissingSpace(s, s.length()-2);
+        }
         return s;
+        //TODO: Don't add a space in the front or the back when it isn't necessary
+        //e.g. when there are no more characters before or after the space
     }
 }

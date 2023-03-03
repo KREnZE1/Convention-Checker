@@ -46,6 +46,14 @@ public class TestSpaceBetweenPlus {
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    public void plusplusOperator() {
+        String testString = "hello++";
+        String expectedResult = "hello++";
+        String actualResult = rule.applyRule(testString);
+        assertEquals(expectedResult, actualResult);
+    }
+
     //TODO: Create more testcases for the SpaceBetweenPlus-rule
     //TODO: Create testcases for any future rules (maybe some modular?)
 }
