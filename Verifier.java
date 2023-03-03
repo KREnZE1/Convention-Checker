@@ -45,7 +45,7 @@ public class Verifier {
             }
         }
     }
-
+    
     private static void handleException(Exception e) {
         System.err.println(e.getMessage());
         System.err.println(e.getStackTrace());

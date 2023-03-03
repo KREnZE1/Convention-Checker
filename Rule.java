@@ -18,16 +18,13 @@ public abstract class Rule {
     }
 
     public void enforceRule(ArrayList<String> linesOfCode) {
-        for (String s : linesOfCode) {
-            //TODO: Rethink structure of basically checking the string twice before manipulating it
-            //Might lead to performance issues due to possibly looping the same string three times
-            if (canBeApplied(s) && notYetApplied(s)) {
-                applyRule(s);
-            }
+        for (int i=0; i<linesOfCode.size(); i++) {
+            String temp = applyRule(linesOfCode.get(i));
+            linesOfCode.add(i, temp);
+            linesOfCode.remove(i+1);
         }
     }
 
-    public abstract boolean canBeApplied(String s);
-    public abstract boolean notYetApplied(String s);
+
     public abstract String applyRule(String s);
 }
