@@ -47,9 +47,25 @@ public class TestSpaceBetweenPlus {
     }
 
     @Test
-    public void plusplusOperator() {
+    public void plusAtEnd() {
+        String testString = "hello+";
+        String expectedResult = "hello +";
+        String actualResult = rule.applyRule(testString);
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void plusplusOperatoratEnd() {
         String testString = "hello++";
         String expectedResult = "hello++";
+        String actualResult = rule.applyRule(testString);
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void plusPlusOperatorMiddle() {
+        String testString = "hell++o";
+        String expectedResult = "hell++o";
         String actualResult = rule.applyRule(testString);
         assertEquals(expectedResult, actualResult);
     }
