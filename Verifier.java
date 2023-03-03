@@ -38,6 +38,7 @@ public class Verifier {
 
     public static void enforce() {
         for (Rule rule : rulesToEnforce) {
+            //TODO: How should the 
             try {
                 if (rule.shouldBeEnforced()) rule.enforceRule(linesOfCode);
             } catch(IllegalMethodCall imc) {

@@ -5,7 +5,9 @@ public abstract class Rule {
     static String description;
     static RuleStates state;
 
-    // public abstract boolean shouldBeEnforced();
+    public static boolean shouldBeEnforced() {
+        return state == RuleStates.ACTIVE;
+    }
 
     public static void enforceRule(ArrayList<String> linesOfCode) {
         for (int i=0; i<linesOfCode.size(); i++) {
@@ -19,7 +21,6 @@ public abstract class Rule {
 
     public static String applyRule(String s) {
         //TODO: Throw Exception
-        
-        return "";
+        throw new IllegalMethodCall("This method should never be called on the parent class");
     }
 }
