@@ -5,7 +5,7 @@ public class SpaceBetweenPlus extends Rule {
 
 
     public SpaceBetweenPlus() {
-        super(description, RuleStates.NONFUNCTIONAL);
+        super(description, RuleStates.ACTIVE);
     }
 
     public String applyRule(String s) {
@@ -18,11 +18,9 @@ public class SpaceBetweenPlus extends Rule {
             else doubleSignFlag = false;
         }
 
-        if (s.charAt(s.length()-1) == '+' && !doubleSignFlag) s = insertMissingSpaces(s, s.length()-1);
+        if (s.length()>0 && s.charAt(s.length()-1) == '+' && !doubleSignFlag) s = insertMissingSpaces(s, s.length()-1);
 
         return s;
-        //TODO: Don't add a space in the front or the back when it isn't necessary
-        //e.g. when there are no more characters before or after the space
     }
 
     public String insertMissingSpaces(String s, int i) {
